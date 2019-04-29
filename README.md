@@ -23,6 +23,11 @@ Analyzing cancers isn't an easy task. It requires intensive examining. More than
 As a Machine Learning Engineer, if we can't help the doctors and ultimately society, then what are we good at? Healthcare is a complicated field and using Machine Learning in this field has its own *advantages* and *disadvantages*. There is a limit to which we can do things with ML in healthcare. In conclusion, this matters!
 
 ### Dataset
-The dataset is a part of [Kaggle Datasets](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000). A big thank you to **Kevin Mader** for uploading this dataset to kaggle.  
+The dataset is a part of [Kaggle Datasets](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000). A big thank you to **Kevin Mader** for uploading this dataset to kaggle.
+The dataset comprises of a total of **10,000** images stored in two folders. The information about the data is stored in a dataframe which looks like this:
+
+There are a total of **7 classes** of skin cancer in the dataset. After removing the duplicates and checking the final distribution as shown below, we found out that the dataset is **highly imbalanced** which poses another challenge. For detailed notes, please check the *EDA notebook* in the notebooks directory
+
+## Architecture
 
 
