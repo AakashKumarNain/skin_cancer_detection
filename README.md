@@ -32,7 +32,7 @@ The dataset comprises of a total of **10,000** images stored in two folders. The
 </figure>
 
 
-There are a total of **7 classes** of skin cancer in the dataset. After removing the duplicates and checking the final distribution as shown below, we found out that the dataset is **highly imbalanced** which poses another challenge. For detailed notes, please check the *EDA notebook* in the notebooks directory
+There are a total of **7 classes** of skin cancer in the dataset. After removing the duplicates we were left with around **~8K samples**. Checking the final distribution as shown below, we found out that the dataset is **highly imbalanced** which poses another challenge. For detailed notes, please check the **EDA notebook** in the notebooks directory
 
 <figure>
   <img src="./images/class_distribution.png" alt="distribution", align="middle">
