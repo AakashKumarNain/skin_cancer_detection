@@ -26,10 +26,27 @@ As a Machine Learning Engineer, if we can't help the doctors and ultimately soci
 The dataset is a part of [Kaggle Datasets](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000). A big thank you to **Kevin Mader** for uploading this dataset to kaggle.
 The dataset comprises of a total of **10,000** images stored in two folders. The information about the data is stored in a dataframe which looks like this:
 
+<figure>
+  <img src="./images/dataset_csv.png" alt="data", align="middle">
+  <figcaption></figcaption>
+</figure>
+
+
 There are a total of **7 classes** of skin cancer in the dataset. After removing the duplicates and checking the final distribution as shown below, we found out that the dataset is **highly imbalanced** which poses another challenge. For detailed notes, please check the *EDA notebook* in the notebooks directory
 
+<figure>
+  <img src="./images/class_distribution.png" alt="distribution", align="middle">
+  <figcaption></figcaption>
+</figure>
+
+
 ## Architecture
-The ultimate aim of this project was to get a model that can run on mobile phones. In this regard, the only choices of architecture we had were: Mobilenet_v1, MobileNet_v2, M-Nasnet, and Shufflenet. We focused on the mobilenets family as they are readily available in the keras model zoo. 
+The ultimate aim of this project was to get a model that can run on mobile phones. In this regard, the only choices of architecture we had were: Mobilenet_v1, MobileNet_v2, M-Nasnet, and Shufflenet. We focused on the mobilenets family as they are readily available in the keras model zoo. I chose MobileNetv2 as it much faster on mobile as compared to mobilenet_v1
+
+<figure>
+  <img src="./images/mobilenetv2.jpg" alt="architecture", align="middle">
+  <figcaption></figcaption>
+</figure>
 
 The base network was used for feature extractor, excluding all the top layers that were responsible for classification. In mobilenets, the last layer for feature extraction is `global average pooling`, hence we discard all the layers beyond this point. The task of training the model was completed into two phases:
 * **Transfer learning** where we added new layers on the top of the base network and trained the new layers while keeping the base network in the frozen state.
