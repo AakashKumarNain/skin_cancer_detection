@@ -67,6 +67,40 @@ The final version of the android app works on `CPU` as well as on `GPU`. Check t
 
 ![Misclassified examples](./fails.gif)
 
+## Reports
+
+Final **training loss**:   0.4029
+Final **validation loss**: 0.6417
+
+Final **training categorical accuracy(top-1)**:   0.8627     
+Final **validation categorical accuracy(top-1)**: 0.7897
+
+Final **training categorical accuracy(top-2)**:   0.9612     
+Final **validation categorical accuracy(top-2)**: 0.9123
+
+
+
+**Confusion matrix**
+![conf_mtx](./images/confusion_matrix.png)
+
+
+**Classification Report**
+
+    precision    recall  f1-score   support
+
+       akiec       0.44      0.50      0.47        34
+         bcc       0.62      0.80      0.70        49
+         bkl       0.62      0.45      0.52       109
+          df       0.33      0.18      0.24        11
+         mel       0.60      0.45      0.52        93
+          nv       0.86      0.94      0.90       540
+        vasc       1.00      0.57      0.73        14
+
+    micro avg      0.78      0.78      0.78       850
+    macro avg      0.64      0.56      0.58       850
+    weighted avg   0.77      0.78      0.77       850
+
+
 
 ## Disclaimer!
 This deep learning model has been trained on a very small dataset. Although the `top-2` accuracy of the model is pretty high, it is still not `adequate`. Though this app can be used to `aid` doctors to answer one question regarding a lesion **What are the most probable two/three cases?** This is one of the reasons I haven't published the app on the store. **We need to do better!** 
