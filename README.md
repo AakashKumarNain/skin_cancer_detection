@@ -1,4 +1,4 @@
-# Skin Lesion Analyzer
+# Skin Lesion Detection
 
 ### What is this all about?
 The aim of this project is to detect **skin lesions** using a deep learning model. This project is a part of the ongoing **[#PoweredByTF 2.0 Challenge! ](https://tensorflow.devpost.com/)**. As the challenge is based on TF2.0, our aim is to build something in order to showcase:
@@ -20,7 +20,7 @@ Analyzing cancers isn't an easy task. It requires intensive examining. More than
 * Given the fact that there are a limited number of experts, how can we make them more efficient? Can we aid them using state of the art machine learning techniques? If yes, how?
 * Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available dataset of dermatoscopic images. Labelled data in healthcare is another bottleneck. With the available limited data, how much can we do?
 
-As a Machine Learning Engineer, if we can't help the doctors and ultimately society, then what are we good at? Healthcare is a complicated field and using Machine Learning in this field has its own *advantages* and *disadvantages*. There is a limit to which we can do things with ML in healthcare. In conclusion, this matters!
+As Machine Learning Engineers, if we can't help the doctors and ultimately the society, then what are we good at? Healthcare is a complicated field and using Machine Learning in this field has its own *advantages* and *disadvantages*. There is a limit to which we can do things with ML in healthcare but whatever we can do, it matters!
 
 ### Dataset
 The dataset is a part of [Kaggle Datasets](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000). A big thank you to **Kevin Mader** for uploading this dataset to kaggle.
@@ -41,7 +41,7 @@ There are a total of **7 classes** of skin cancer in the dataset. After removing
 
 
 ## Architecture
-The ultimate aim of this project was to get a model that can run on mobile phones. In this regard, the only choices of architecture we had were: Mobilenet_v1, MobileNet_v2, M-Nasnet, and Shufflenet. We focused on the mobilenets family as they are readily available in the keras model zoo. I chose MobileNetv2 as it much faster on mobile as compared to mobilenet_v1
+The ultimate aim of this project was to get a model that can run on mobile phones. In this regard, the only choices of architecture we had were: `Mobilenet_v1`, `MobileNet_v2`, `M-Nasnet`, and `Shufflenet`. I focused on the mobilenets family as they are readily available in the `keras model zoo`. I chose `MobileNetv2` as it much faster on mobile as compared to mobilenet_v1
 
 <figure>
   <img src="./images/mobilenetv2.jpg" alt="architecture", align="middle">
@@ -50,4 +50,23 @@ The ultimate aim of this project was to get a model that can run on mobile phone
 
 The base network was used for feature extractor, excluding all the top layers that were responsible for classification. In mobilenets, the last layer for feature extraction is `global average pooling`, hence we discard all the layers beyond this point. The task of training the model was completed into two phases:
 * **Transfer learning** where we added new layers on the top of the base network and trained the new layers while keeping the base network in the frozen state.
-* **Fine-tuning** where we unfreeze some of the layers of the base network for improved gains. 
+* **Fine-tuning** where we unfreeze some of the layers of the base network for improved gains.
+
+Please refer to [this](./how_to_run.md) file for detailed instructions for preparing dataset, modelling, model conversion, etc.
+
+## Demo
+The final version of the android app works on `CPU` as well as on `GPU`. Check the demo below. There are two scenarios represented here. One where the app works perfectly and second where it doesn't.
+
+**Works like a charm**
+
+![Perfect Classification](./works.gif)
+
+
+
+**Misclassifications**
+
+![Misclassified examples](./fails.gif)
+
+
+## Disclaimer!
+This deep learning model has been trained on a very small dataset. Although the `top-2` accuracy of the model is pretty high, it is still not `adequate`. Though this app can be used to `aid` doctors to answer one question regarding a lesion **What are the most probable two/three cases?** This is one of the reasons I haven't published the app on the store. **We need to do better!** 
