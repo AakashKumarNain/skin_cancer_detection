@@ -69,7 +69,7 @@ The final version of the android app works on `CPU` as well as on `GPU`. Check t
 
 ## Reports
 
-Final **training loss**:   0.4029
+Final **training loss**:   0.4029<br>
 Final **validation loss**: 0.6417
 
 Final **training categorical accuracy(top-1)**:   0.8627     
